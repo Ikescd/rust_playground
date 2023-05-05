@@ -36,10 +36,10 @@ fn main() {
 
     let value_to_convert: f32 = value_to_convert.trim().parse().unwrap();
 
-    let converted_value: f32 = if unit == "F" {
-        (value_to_convert - 32.0) / 1.8
-    } else {
-        (value_to_convert * 1.8) + 32.0
+    let converted_value: f32 = match unit {
+      "F" => (value_to_convert -32.0) / 1.8,
+      "C" => (value_to_convert * 1.8) + 32.0,
+      _ => return
     };
 
     // 3. nous retournons la température convertie
